@@ -51,7 +51,7 @@ gclient
 
 按照官方提示的来，配置环境变量将export DEPOT_TOOLS_UPDATE=0追加到.bashrc末尾，（类似下面配置Boto），然后重新输入gclient。（如果gclient不能更新，感觉代理可能还是存在问题）
 
-![gclient输出](https://upload-images.jianshu.io/upload_images/8885177-09aa799a2697e7d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![gclient输出](https://ForLovelj.github.io/img/WebRTC下载和编译)
 
 设置depot_tools代理（gclient sync出现download_from_google_storage错误时的解决方法）
 新建一个文件gclient.boto（比如/home/cllow/gclient.boto）,添加以下内容
