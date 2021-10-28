@@ -83,7 +83,6 @@ public abstract class Reference<T> {
 LeakCanary使用了ContentProvider来自动初始化。我们都知道ContentProvider的onCreate的调用时机介于Application的attachBaseContext和onCreate之间，Provider的onCreate优先于Application的onCreate执行。此时的Application已经创建成功，而Provider里的context正是Application的对象。目前很多三方库都采用这种无感知的初始化方式了。
 ```
 //manifest
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.squareup.leakcanary.objectwatcher" >
 
@@ -98,8 +97,9 @@ LeakCanary使用了ContentProvider来自动初始化。我们都知道ContentPro
     </application>
 
 </manifest>
-```
-```
+
+
+//AppWatcherInstaller
 internal sealed class AppWatcherInstaller : ContentProvider() {
 
     ...
