@@ -7,7 +7,7 @@ categories:
 - Android
 tags: Android
 ---
-## 1. 序
+## 1 序
 基于`com.squareup.leakcanary:leakcanary-android:2.5`
 > LeakCanary 是一个适用于 Android 的内存泄漏检测库，其具有一种独特的能力，可以缩小每个泄漏的原因，从而帮助开发人员显着减少OutOfMemoryError崩溃。
 
@@ -20,7 +20,7 @@ LeakCanary 自动检测以下对象的泄漏：
 
 那么LeakCanary是通过什么方式来检查内存泄漏的呢？
 
-## 2. LeakCanary检测内存泄漏的原理
+## 2 LeakCanary检测内存泄漏的原理
 在分析LeakCanary检测内存泄漏的原理之前我们先来看下Java中存在的4种引用类型：
 ### 2.1 Java引用分类
 - 强引用：平时常用的引用类型，JVM发生OOM也不会回收这部分引用。
@@ -68,7 +68,7 @@ public abstract class Reference<T> {
 没错，这就是`LeakCanary`检测内存泄漏的核心原理，`LeakCanary`内部用到了`Refercence`及`ReferenceQueue`来实现对对象是否被回收的监听。
 
 接下来我们通过分析源码来看一看`LeakCanary`是如何检测内存泄漏，并发出内存泄漏通知的。
-## 3. LeakCanary源码解析
+## 3 LeakCanary源码解析
 为了更好的对LeakCanary源码进行分部解析，我们先对LeakCanary实现内存泄漏的整体过程做一个概括：
 
 1. 初始化。
@@ -496,7 +496,7 @@ override fun onHeapAnalyzed(heapAnalysis: HeapAnalysis) {
   }
 ```
 
-## 4. 总结
+## 4 总结
 我们以`Activity为`例，来总结下`LeakCanary`检测内存泄漏过程：
 1. 监听`Activity`的`onDestroy`事件
 2. 在`onDestroy`事件回调中使用`objectWatcher.watch()`创建引用activity的`KeyedWeakReference`对象，并关联ReferenceQueue。

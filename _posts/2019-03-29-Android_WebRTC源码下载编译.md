@@ -7,12 +7,12 @@ categories:
 - Android
 tags: WebRTC
 ---
-## 1. 概述
+## 1 概述
 WebRTC (Web Real-Time Communications) 是一项实时通讯技术，它允许网络应用或者站点，在不借助中间媒介的情况下，建立浏览器之间点对点（Peer-to-Peer）的连接，实现视频流和（或）音频流或者其他任意数据的传输。WebRTC包含的这些标准使用户在无需安装任何插件或者第三方的软件的情况下，创建点对点（Peer-to-Peer）的数据分享和电话会议成为可能。
 
 编译过程有点曲折，整理一下。
 
-## 2. 环境准备
+## 2 环境准备
 1.编译需要linux环境，我用的是vm虚拟机 + [ubuntu16.04.6](https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/16.04/)（建议磁盘容量分配>=50g）
 2.VPN （我用的是SSR）
 3.配置代理 以SSR为例 先在ubuntu的“系统设置”的“网络设置"中将代理设置为手动，地址指向代理IP（本示例装在虚拟机中，翻墙是在主机中使用SSR，因此指向物理机地址：192.168.1.47，端口1080）。
@@ -51,7 +51,7 @@ gclient
 
 按照官方提示的来，配置环境变量将export DEPOT_TOOLS_UPDATE=0追加到.bashrc末尾，（类似下面配置Boto），然后重新输入gclient。（如果gclient不能更新，感觉代理可能还是存在问题）
 
-![gclient输出](https://ForLovelj.github.io/img/WebRTC下载和编译)
+![gclient输出](https://ForLovelj.github.io/img/WebRTC下载和编译.png)
 
 设置depot_tools代理（gclient sync出现download_from_google_storage错误时的解决方法）
 新建一个文件gclient.boto（比如/home/cllow/gclient.boto）,添加以下内容
@@ -71,7 +71,7 @@ source ~/.bashrc
 //可以执行export查看
 export
 ```
-4. 源码下载
+## 3 源码下载
 ```
 //创建目录
 mkdir webrtc
@@ -80,7 +80,7 @@ cd webrtc
 fetch --nohooks webrtc_android
 gclient sync // 异常断开后，可多执行几次 必须要sync同步完才能开始编译
 ```
-5. 编译
+## 4 编译
 ```
 //安装jdk 8
 sudo apt-get install default-jre
